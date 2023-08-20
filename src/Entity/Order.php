@@ -19,6 +19,9 @@ class Order
     #[ORM\Column(type: 'integer', nullable: false)]
     private ?int $id = null;
 
+    /**
+     * @var Collection <int, OrderProduct>
+     */
     #[ORM\OneToMany(mappedBy: 'order', targetEntity: OrderProduct::class, cascade: ['persist', 'remove'])]
     private Collection $products;
 
