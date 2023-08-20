@@ -6,7 +6,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity()]
+#[ORM\Entity]
 class OrderProduct
 {
     #[ORM\Id]
@@ -17,7 +17,7 @@ class OrderProduct
     #[ORM\ManyToOne(targetEntity: Product::class)]
     private Product $product;
 
-    #[ORM\ManyToOne(targetEntity: Order::class, inversedBy: 'products')]
+    #[ORM\ManyToOne(targetEntity: Order::class, cascade: ['persist'], inversedBy: 'products')]
     private ?Order $order = null;
 
     #[ORM\Column]

@@ -21,7 +21,6 @@ class OrderCreateService
     public function create(array $products): Order
     {
         $order = new Order();
-
         foreach ($products as $product) {
             $orderProduct = new OrderProduct($product, 1, $product->getPrice());
             $order->add($orderProduct);
