@@ -43,6 +43,7 @@ class Order
     public function add(OrderProduct $product): self
     {
         $this->products->add($product);
+        $product->setOrder($this);
 
         return $this;
     }

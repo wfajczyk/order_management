@@ -17,7 +17,7 @@ class OrderProduct
     #[ORM\ManyToOne(targetEntity: Product::class)]
     private Product $product;
 
-    #[ORM\ManyToOne(targetEntity: Order::class, cascade: ['persist'], inversedBy: 'products')]
+    #[ORM\ManyToOne(targetEntity: Order::class, cascade: ['persist', 'remove'], inversedBy: 'products')]
     private ?Order $order = null;
 
     #[ORM\Column]
@@ -46,6 +46,13 @@ class OrderProduct
     public function getOrder(): Order
     {
         return $this->order;
+    }
+
+    public function setOrder(Order $order): OrderProduct
+    {
+        $this->order = $order;
+
+        return $this;
     }
 
     public function getQuantity(): int

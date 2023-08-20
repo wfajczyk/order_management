@@ -25,4 +25,15 @@ class OrderRepository extends ServiceEntityRepository
 
         $this->getEntityManager()->flush();
     }
+
+    public function remove(Order $entity, bool $flush = true): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if (!$flush) {
+            return;
+        }
+
+        $this->getEntityManager()->flush();
+    }
 }
