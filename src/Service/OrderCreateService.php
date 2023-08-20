@@ -30,4 +30,17 @@ class OrderCreateService
 
         return  $order;
     }
+
+    public function reCreate(Order $order): Order
+    {
+        $newOrder = new Order();
+        foreach ($order->getProducts() as $product) {
+            $orderProduct = new OrderProduct($product->getProduct(), 1, $product->getPrice());
+            $newOrder->add($orderProduct);
+        }
+
+        $this->orderRepository->save($newOrder);
+
+        return $newOrder;
+    }
 }
