@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route(
     path: "order/remove/{order}",
     name: "order_remove",
-    methods: ["POST"]
+    methods: ["DELETE"]
 )]
 class RemoveOrderAction
 {

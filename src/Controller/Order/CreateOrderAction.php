@@ -26,6 +26,6 @@ class CreateOrderAction
 
         $order = $this->createService->create([$product]);
 
-        return new JsonResponse($order);
+        return new JsonResponse($order->getId());
     }
 }

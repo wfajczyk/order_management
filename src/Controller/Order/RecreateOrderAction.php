@@ -25,6 +25,6 @@ class RecreateOrderAction
     {
         $newOrder = $this->createService->reCreate($order);
 
-        return new JsonResponse($newOrder);
+        return new JsonResponse($newOrder->getId());
     }
 }
