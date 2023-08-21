@@ -8,6 +8,12 @@ Endpoints:
 
 Where `{order}` is order id from database. Actually it is autoincrement number.
 
+The entire development environment can be run using `docker`
+```shell
+docker-compose up
+```
+use php at `localhost:8080` and mysql at `localhost:3306`
+
 To build application please use:
 ```shell
 composer install
