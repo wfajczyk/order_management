@@ -16,15 +16,13 @@ class OrderCreateTest extends WebTestCase
         $client = static::createClient();
 
         $data = [
-            'products' => [
-                [
-                    'id' => 5,
-                    'quantity' => 10,
-                ],
-                [
-                    'id' => 6,
-                    'quantity' => 11,
-                ],
+            [
+                'id' => 5,
+                'quantity' => 10,
+            ],
+            [
+                'id' => 6,
+                'quantity' => 11,
             ],
         ];
 
@@ -39,7 +37,7 @@ class OrderCreateTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
         self::assertJson($client->getResponse()->getContent());
-        $order = $this->getOrder((int) $client->getResponse()->getContent());
+        $order = $this->getOrder((int)$client->getResponse()->getContent());
         self::assertNotNull($order);
     }
 
